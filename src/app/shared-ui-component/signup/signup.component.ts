@@ -8,33 +8,33 @@ import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
     
-  regiForm : FormGroup = new FormGroup ({
-     email : new FormControl(),
-     password : new FormControl()
-  });
-  submitted = false;
+  // regiForm : FormGroup = new FormGroup ({
+  //    email : new FormControl(),
+  //    password : new FormControl()
+  // });
+  // submitted = false;
 
   constructor(
-    private fb : FormBuilder
+    // private fb : FormBuilder
   ) { 
     
   }
 
   ngOnInit(): void {
-    this.regiForm = this.fb.group({
-      email : ["",[Validators.required,Validators.email]],
-      password : ["",Validators.required]
-    })
+    // this.regiForm = this.fb.group({
+    //   email : ["",[Validators.required,Validators.email]],
+    //   password : ["",Validators.required]
+    // })
   }
 
-  get f() {
-      return this.regiForm.controls;
-  }
+  // get f() {
+  //     return this.regiForm.controls;
+  // }
 
-  submit () {
-    this.submitted = true ;
-    console.log(this.regiForm.value);
+  // submit () {
+  //   this.submitted = true ;
+  //   console.log(this.regiForm.value);
 
-  }
+  // }
 
 }

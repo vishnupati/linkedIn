@@ -39,9 +39,9 @@ export class ReggistrationComponent implements OnInit {
   }
   
   signIn () {
-    const modalRef = this.ngb.open(SignupComponent,{
-      size : "md"
-    });
+    // const modalRef = this.ngb.open(SignupComponent,{
+    //   size : "md"
+    // });
 
   }
 
