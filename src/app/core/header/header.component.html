@@ -3,16 +3,25 @@
         <div class="col-md-10">
             <nav class="navbar navbar-expand-md">
                 <a href="#" class="navbar-brand"><i class="fa fa-linkedin-square fa-lg"></i></a>
+                <div class="search" >
+                    <input type="search" />
+                </div>
                 <button
                  class="navbar-toggler" 
                  data-toggle="collapse" 
                  data-target="navbarcollapse">
                 <span class="navabar-toggler-icon"></span>
                 </button>
-                <ul *ngIf="navItem">
-                    
-                </ul>
-
+                <div class="collapse navbar-collapse justify-content-end"
+                     id="navbarcollapse">
+                    <ul  class="navbar-nav" *ngIf="navItem">
+                        <ng-container 
+                        class="nav-item" 
+                        *ngFor="let item for navItem">
+                        {{item.title}}
+                        </ng-container>
+                    </ul>
+                </div>
             </nav> 
         </div>
     </div>
