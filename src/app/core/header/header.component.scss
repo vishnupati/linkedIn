@@ -1,0 +1,65 @@
+nav {
+     margin : 0;
+     padding: 0;
+}
+.navbar-nav li > a:hover{
+    color: #02A8EB;
+  }
+//   .logo{
+//     width: 70px;
+//   }
+//   .navbar-nav li.active > a {
+//     color:#02A8EB;
+//   }
+//   .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+//       color:#02A8EB;
+//   }
+//   .header .navbar-nav li > a:hover{
+//     background-color :#00A6EA;;
+//     color : #fff!important;
+//     border-radius:4px;
+//   }
+//   .nav-heading > span {
+//     color: #02A8EB;
+//     font-size: 20px;
+//     font-weight: bold;
+//   }
+//   .navbar-light .navbar-nav .nav-link {
+//     font-size: 14px;
+//     font-weight: bold;
+//   }
+//   .dropdown-toggle::after {
+//     display:none;
+//   }
+//   .dropdown-item  {
+//     font-size: 14px;
+//     color: lightslategrey;
+//   }
+//   .dropdown-item.active, .dropdown-item:active {
+//       text-decoration: none;
+//       background-color: #eff3f8;
+//       color: #02A8EB !important;
+//   }
+//   .dropdown-menu {
+//     position: absolute;
+//     top: 100%;
+//     left: -70px !important;
+//     border: 1px solid #989FA7;
+    
+//   }
+//   .logout {
+//     cursor: pointer;
+//   }
+  
+//   .navbar-light {
+//     cursor: pointer !important;
+//   }
+#navbar-color {
+   color : lightslategrey;
+}
+  #navbar-color :hover {
+    color: #000;
+  }
+  .input-group {
+    width : 250px;
+  }

@@ -1,10 +1,13 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-10">
+        <div class="col-md-10 offset-md-1">
             <nav class="navbar navbar-expand-md">
                 <a href="#" class="navbar-brand"><i class="fa fa-linkedin-square fa-lg"></i></a>
-                <div class="search" >
-                    <input type="search" />
+                <div  class="input-group" >
+                    <input type="search" class="form-control" placeholder="Search" />
+                    <button type="button" class="btn bg-transparent" style="margin-left: -40px; z-index: 100; color: lightsteelblue;">
+                      <i class="fa fa-search"></i>
+                    </button>
                 </div>
                 <button
                  class="navbar-toggler" 
@@ -14,15 +17,61 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-end"
                      id="navbarcollapse">
-                    <ul  class="navbar-nav" *ngIf="navItem">
-                        <ng-container 
-                        class="nav-item" 
-                        *ngFor="let item for navItem">
-                        {{item.title}}
+                    <ul  class="navbar-nav  nav-justified w-100 text-center" *ngIf="navItem">
+                        <ng-container
+                        *ngFor="let item of navItem"
+                        class="nav-item"
+                        [class.dropdown]="item.subMenus"
+                        [class.ml-auto]="item.subMenus"
+                        
+                      >
+                        <ng-container *ngIf="item.url && !item.subMenus">
+                          <ng-container *ngTemplateOutlet="menu; context:{item: item}">
+                          </ng-container>
                         </ng-container>
+                        
+                        <div *ngIf="item.url && item.subMenus" ngbDropdown class="dropdown d-inline-block">
+                          <a
+                            xauto-navbar-link-item
+                            class="nav-link d-flex flex-column"
+                            ngbDropdownToggle
+                            data-toggle="dropdown"
+                            aria-expanded="false"
+                          >
+                          <i id="navbar-color" class="{{item.icon}}"></i>
+                          <span id="navbar-color" >
+                            {{item.title | uppercase}}
+                          </span>
+                        </a>
+                          <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="dropdownBasic1">
+                            <ng-container  ngbDropdownItem *ngFor="let subMenu of item.subMenus">
+                              <ng-container  *ngTemplateOutlet="menu; context:{item: subMenu, isSubMenu: true}">
+                              </ng-container>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </ng-container>
                     </ul>
                 </div>
             </nav> 
         </div>
     </div>
 </div>
+
+<ng-template  #menu let-item='item' let-isSubMenu='isSubMenu'>
+    <a id="navbar-color"
+      xauto-navbar-link-item
+      [class.nav-link]="!isSubMenu "
+      [class.dropdown-item]="isSubMenu"
+      [routerLink]="item.url"
+      routerLinkActive="actived"
+      ngbDropdownItem
+      class="d-flex flex-column"
+    >
+    <i  class="{{item.icon}}"></i>
+    <span  class="d-none d-sm-inline" >
+      {{item.title | uppercase}}
+    </span>  
+    <!-- <span *ngIf="item.title === 'NOTIFICATION' && readSatatus" class="badge badge-danger notification-badge">.</span> -->
+  </a>
+  </ng-template>

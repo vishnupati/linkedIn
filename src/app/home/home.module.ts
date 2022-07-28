@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreModule } from '../core/core.module';
+import { UserModule } from '../user/user.module';
 
 const route : Routes =  [
     {
@@ -29,7 +30,8 @@ const route : Routes =  [
   imports: [
     CommonModule,
     RouterModule.forChild(route),
-    CoreModule
+    CoreModule,
+    UserModule
   ]
 })
 export class HomeModule { }

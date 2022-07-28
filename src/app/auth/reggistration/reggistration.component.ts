@@ -3,6 +3,7 @@ import { SignupComponent } from 'src/app/shared-ui-component/signup/signup.compo
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder,FormGroup,FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RegistrationService } from 'src/app/api_services/registration.service';
 
 @Component({
   selector: 'app-reggistration',
@@ -19,7 +20,8 @@ export class ReggistrationComponent implements OnInit {
   constructor(
     private ngb : NgbModal,
     private fb : FormBuilder,
-    private route : Router
+    private route : Router,
+    private regiServ : RegistrationService
   ) { 
     this.regiForm = this.fb.group({
       email : ["",[Validators.required,Validators.email]],
@@ -46,11 +48,15 @@ export class ReggistrationComponent implements OnInit {
   }
 
 submit () {
-  this.submitted = true ;
-  if (this.regiForm.valid) {
-    console.log(this.regiForm.value);
-    this.route.navigate(["home/user"]);
+  if (this.regiForm.invalid) {
+    this.submitted = true ;
+    return ;
   }
+  // console.log(this.regiForm.value);
+  this.regiServ.createAccount(this.regiForm.value).subscribe(res => {
+    console.log('sign',res.data)
+    this.route.navigate(["home/user"]);
+  })
 }
 
 }
