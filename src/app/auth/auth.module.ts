@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReggistrationComponent } from './reggistration/reggistration.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
     {
@@ -15,6 +16,10 @@ const routes: Routes = [
     {
       path : "forgot",
       component : ForgotPasswordComponent
+    },
+    {
+      path : "signin",
+      component : SignInComponent
     }
 ];
 
@@ -22,6 +27,7 @@ const routes: Routes = [
   declarations: [
     ReggistrationComponent,
     ForgotPasswordComponent,
+    SignInComponent,
   ],
   imports: [
     CommonModule,

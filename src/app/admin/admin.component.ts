@@ -55,14 +55,41 @@ export class AdminComponent implements OnInit {
        }
     }
  }
-  
+  hello = "Mobile No|MsgId|TIVRE ID|Send Date|Delivery Date|Status#00917987934995|0|9237530|7/28/2022 7:25:00 PM|7/28/2022 7:25:00 PM|delivrd #"
   constructor() { 
-    this.data  = JSON.parse(JSON.stringify(this.data).replace(/\:null/gi, "\:\"\"")); 
-    const myJson = JSON.stringify(this.json)
-    console.log(this.data)
+   
+  
   }
 
+  
   ngOnInit(): void {
+    var list = this.hello.split("#")
+    console.log( list );
+    
+    let y = list.splice(1);
+    // console.log(list),
+    // console.log(y);
+    
+    
+    var objA = list.toString()
+
+    var strA = objA.split("|")
+
+    var objB = y.toString()
+
+    var strB = objB.split("|")
+    console.log(';^^^^^^^^^',strB)
+
+    const obj : any = {} ;
+
+    strA.forEach((element, index) => {
+     obj[element] = strB[index];
+    });
+   console.log(obj)
+    obj['Delivery Date'] = new Date();
+    obj[`Send Date`] = new Date();
+   console.log("********",obj)
   }
+  
 
 }

@@ -8,11 +8,13 @@ import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import { initializeApp } from 'firebase/app';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
+import * as firebase from 'firebase/app'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment';
 
+// const app = firebase.initializeApp(environment.firebaseConfig)
 @NgModule({
   declarations: [
     AppComponent
