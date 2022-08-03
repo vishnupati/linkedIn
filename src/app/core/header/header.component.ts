@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('navitem',this.navItem)
+    // console.log('navitem',this.navItem)
   }
   // public isActiveTopMenu(item: any): boolean {
   //   const currentUrl = this.router.url.split('home/');

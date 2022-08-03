@@ -18,5 +18,8 @@ export class UserComponent implements OnInit {
     })
     // alert("usercomponent1")
   }
+  change(event:any) {
+     console.log('llllllllllllgfdg',event.target.files[0])
+  }
 
 }
